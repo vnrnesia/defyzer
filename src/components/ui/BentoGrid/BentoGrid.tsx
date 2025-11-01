@@ -1,5 +1,5 @@
-"use client"
-import { ComponentPropsWithoutRef, ReactNode } from "react"
+"use client";
+import { ComponentPropsWithoutRef, ReactNode } from "react";
 import {
   ArrowRightIcon,
   BellIcon,
@@ -7,43 +7,46 @@ import {
   FileTextIcon,
   GlobeIcon,
   InputIcon,
-} from "@radix-ui/react-icons"
-import Lottie from "lottie-react"
-
-import { cn } from "@/lib/utils"
-import contactAnimation from "@public/tr/ru/en/message_en.json"
-import { Button } from "./button"
-
-// --- From bento-grid.tsx ---
+} from "@radix-ui/react-icons";
+import Lottie from "lottie-react";
+import contactAnimation from "@public/tr/ru/en/message_en.json";
+import { cn } from "@/lib/utils";
+import HoverControlledLottie from "./HoverControlledLottie";
+import { Button } from "./button";
+import { img } from "motion/react-client";
 
 interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
-  children: ReactNode
-  className?: string
+  children: ReactNode;
+  className?: string;
 }
 
 interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
-  name: string
-  className: string
-  background: ReactNode
-  Icon: React.ElementType
-  description: string
-  href: string
-  cta: string
+  name: string;
+  className: string;
+  background: ReactNode;
+  Icon: React.ElementType;
+  description: string;
+  href: string;
+  cta: string;
 }
 
-export const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
+export const BentoGrid = ({
+  children,
+  className,
+  ...props
+}: BentoGridProps) => {
   return (
     <div
       className={cn(
-        "grid w-full auto-rows-[22rem] grid-cols-3 gap-4",
+        "grid w-full auto-rows-auto grid-cols-3 gap-4",
         className
       )}
       {...props}
     >
       {children}
     </div>
-  )
-}
+  );
+};
 
 export const BentoCard = ({
   name,
@@ -116,7 +119,7 @@ export const BentoCard = ({
 
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
   </div>
-)
+);
 
 // --- From BentoGrid.tsx ---
 
@@ -129,7 +132,7 @@ export function BentoDemo() {
         "Satış odaklı dijital kampanyalarla markanız için nitelikli müşteri adayları oluşturuyoruz.",
       href: "/",
       cta: "Sayfaya git",
-      background: <img className="absolute -top-20 -right-20 opacity-60" />,
+      background: <img className="" />,
       className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
     },
     {
@@ -138,7 +141,12 @@ export function BentoDemo() {
       description: "Dijital varlığınızı güçlendiriyoruz.",
       href: "/",
       cta: "Sayfaya git",
-      background: <img className="absolute -top-20 -right-20 opacity-60" />,
+      background: (
+        <HoverControlledLottie
+          animationData={contactAnimation}
+          className="" 
+        />
+      ),
       className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
     },
     {
@@ -147,13 +155,7 @@ export function BentoDemo() {
       description: "Gün içerisinde konuşalım.",
       href: "/iletisim",
       cta: "İletişime Geç",
-      background: (
-        <Lottie
-          animationData={contactAnimation}
-          loop
-          className="absolute inset-0 z-0 opacity-60"
-        />
-      ),
+      background: <img></img>,
       className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
     },
     {
@@ -163,7 +165,7 @@ export function BentoDemo() {
         "Satış ve müşteri yönetiminizi tek platformda toplayan akıllı CRM çözümleri sunuyoruz.",
       href: "/",
       cta: "Sayfaya git",
-      background: <img className="absolute -top-20 -right-20 opacity-60" />,
+      background: <img className="" />,
       className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
     },
     {
@@ -173,10 +175,10 @@ export function BentoDemo() {
         "Sosyal medyada markanızın sesini güçlendiriyor, içerik ve reklam süreçlerini yönetiyoruz.",
       href: "/",
       cta: "Sayfaya git",
-      background: <img className="absolute -top-20 -right-20 opacity-60" />,
+      background: <img className="" />,
       className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4",
     },
-  ]
+  ];
 
   return (
     <BentoGrid className="lg:grid-rows-3">
@@ -184,5 +186,5 @@ export function BentoDemo() {
         <BentoCard key={feature.name} {...feature} />
       ))}
     </BentoGrid>
-  )
+  );
 }

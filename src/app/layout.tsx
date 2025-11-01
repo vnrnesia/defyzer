@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/navbar";
 
@@ -10,6 +10,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -24,12 +29,9 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} max-w-sm md:max-w-[90%]  2xl:max-w-7xl mx-auto antialiased`}
+        className={`${manrope.className} antialiased max-w-sm md:max-w-[90%] 2xl:max-w-7xl mx-auto`}
       >
-       
         <Navbar />
-
-      
         <main>{children}</main>
       </body>
     </html>
