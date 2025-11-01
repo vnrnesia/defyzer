@@ -28,11 +28,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="tr">
-      <body
-        className={`${manrope.className} antialiased max-w-sm md:max-w-[90%] 2xl:max-w-7xl mx-auto`}
-      >
-        <Navbar />
-        <main>{children}</main>
+      <body className={`${manrope.className} antialiased`}>
+        <div className="max-w-sm md:max-w-[90%] 2xl:max-w-7xl mx-auto ">
+          <Navbar/>
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );
