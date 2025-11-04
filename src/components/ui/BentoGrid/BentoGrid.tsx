@@ -21,10 +21,10 @@ interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
 }
 
 interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
-  name: string;
+  name?: string;
   className: string;
   background: ReactNode;
-  Icon: React.ElementType;
+  Icon?: React.ElementType;
   description: string;
   href: string;
   cta: string;
@@ -73,7 +73,7 @@ export const BentoCard = ({
     <div>{background}</div>
     <div className="p-4">
       <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 transition-all duration-300 lg:group-hover:-translate-y-10">
-        <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
+        {Icon && <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />}
         <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
           {name}
         </h3>
@@ -117,7 +117,7 @@ export const BentoCard = ({
       </Button>
     </div>
 
-    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300  group-hover:dark:bg-neutral-800/10" />
   </div>
 );
 
@@ -136,29 +136,6 @@ export function BentoDemo() {
       className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
     },
     {
-      Icon: InputIcon,
-      name: "Web Development",
-      description: "Dijital varlığınızı güçlendiriyoruz.",
-      href: "/",
-      cta: "Sayfaya git",
-      background: (
-        <HoverControlledLottie
-          animationData={contactAnimation}
-          className="" 
-        />
-      ),
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
-    },
-    {
-      Icon: GlobeIcon,
-      name: "Bize ulaş!",
-      description: "Gün içerisinde konuşalım.",
-      href: "/iletisim",
-      cta: "İletişime Geç",
-      background: <img></img>,
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
-    },
-    {
       Icon: CalendarIcon,
       name: "CRM Sistemleri",
       description:
@@ -166,7 +143,7 @@ export function BentoDemo() {
       href: "/",
       cta: "Sayfaya git",
       background: <img className="" />,
-      className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2",
     },
     {
       Icon: BellIcon,
@@ -175,8 +152,30 @@ export function BentoDemo() {
         "Sosyal medyada markanızın sesini güçlendiriyor, içerik ve reklam süreçlerini yönetiyoruz.",
       href: "/",
       cta: "Sayfaya git",
-      background: <img className="" />,
-      className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4",
+      background:<img></img>,
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-4",
+    },
+    {
+      Icon: InputIcon,
+      name: "Web Development",
+      description: "Dijital varlığınızı güçlendiriyoruz.",
+      href: "/",
+      cta: "Sayfaya git",
+      background:<img></img>,
+      className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-3",
+    },
+    {
+      
+      description: "Gün içerisinde konuşalım.",
+      href: "/iletisim",
+      cta: "İletişime Geç",
+      background:  (
+        <HoverControlledLottie
+          animationData={contactAnimation}
+          className="h-1" 
+        />
+      ),
+      className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4",
     },
   ];
 
