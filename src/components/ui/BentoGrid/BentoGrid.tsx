@@ -9,11 +9,15 @@ import {
   InputIcon,
 } from "@radix-ui/react-icons";
 import Lottie from "lottie-react";
-import contactAnimation from "@public/tr/ru/en/message_en.json";
+import contactAnimation from "@public/en/message_en.json";
+import smmAnimation from "@public/en/message_smm_en.json";
+import webDevAnimation from "@public/web_development.json";
+import leadsAnimation from "@public/leads.json";
 import { cn } from "@/lib/utils";
 import HoverControlledLottie from "./HoverControlledLottie";
 import { Button } from "./button";
 import { img } from "motion/react-client";
+import HoverReverseLottie from "./HoverReverseLottie";
 
 interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
   children: ReactNode;
@@ -37,10 +41,7 @@ export const BentoGrid = ({
 }: BentoGridProps) => {
   return (
     <div
-      className={cn(
-        "grid w-full auto-rows-auto grid-cols-3 gap-4",
-        className
-      )}
+      className={cn("grid w-full auto-rows-auto grid-cols-3 gap-4", className)}
       {...props}
     >
       {children}
@@ -73,7 +74,9 @@ export const BentoCard = ({
     <div>{background}</div>
     <div className="p-4">
       <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 transition-all duration-300 lg:group-hover:-translate-y-10">
-        {Icon && <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />}
+        {Icon && (
+          <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
+        )}
         <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
           {name}
         </h3>
@@ -132,7 +135,13 @@ export function BentoDemo() {
         "Satış odaklı dijital kampanyalarla markanız için nitelikli müşteri adayları oluşturuyoruz.",
       href: "/",
       cta: "Sayfaya git",
-      background: <img className="" />,
+      background: (
+        <HoverReverseLottie
+          animationData={leadsAnimation}
+          className="absolute inset-0 h-full w-[200%] pr-96  object-cover "
+          speed={1.2}
+        />
+      ),
       className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
     },
     {
@@ -152,7 +161,13 @@ export function BentoDemo() {
         "Sosyal medyada markanızın sesini güçlendiriyor, içerik ve reklam süreçlerini yönetiyoruz.",
       href: "/",
       cta: "Sayfaya git",
-      background:<img></img>,
+      background: (
+        <HoverReverseLottie
+          animationData={smmAnimation}
+          className="absolute inset-0 h-full w-full object-cover"
+          speed={1.2}
+        />
+      ),
       className: "lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-4",
     },
     {
@@ -161,18 +176,24 @@ export function BentoDemo() {
       description: "Dijital varlığınızı güçlendiriyoruz.",
       href: "/",
       cta: "Sayfaya git",
-      background:<img></img>,
+      background: (
+        <HoverReverseLottie
+          animationData={webDevAnimation}
+          className="absolute inset-0 h-full w-full object-cover"
+          speed={1.2}
+        />
+      ),
       className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-3",
     },
     {
-      
       description: "Gün içerisinde konuşalım.",
+      name: "a",
       href: "/iletisim",
       cta: "İletişime Geç",
-      background:  (
+      background: (
         <HoverControlledLottie
           animationData={contactAnimation}
-          className="h-1" 
+          className="h-1"
         />
       ),
       className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4",

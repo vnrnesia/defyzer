@@ -17,8 +17,10 @@ export const HeroParallax = ({
     thumbnail: string;
   }[];
 }) => {
+  // 3 satıra ayırıyoruz
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
+  const thirdRow = products.slice(10, 15);
 
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
@@ -36,6 +38,11 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 1], [0, -1000]),
     springConfig
   );
+  const translateXThird = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 800]),
+    springConfig
+  );
+
   const rotateX = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [15, 0]),
     springConfig
@@ -49,14 +56,14 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-400, 150]), 
+    useTransform(scrollYProgress, [0, 0.2], [-400, 150]),
     springConfig
   );
 
   return (
     <div
       ref={ref}
-      className="h-[190vh]  overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[250vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -67,6 +74,7 @@ export const HeroParallax = ({
           opacity,
         }}
       >
+        {/* 1. Satır */}
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
             <ProductCard
@@ -76,11 +84,22 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
+        {/* 2. Satır */}
         <motion.div className="flex flex-row mb-20 space-x-20">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
               translate={translateXReverse}
+              key={product.title}
+            />
+          ))}
+        </motion.div>
+        {/* 3. Satır */}
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+          {thirdRow.map((product) => (
+            <ProductCard
+              product={product}
+              translate={translateXThird}
               key={product.title}
             />
           ))}
@@ -92,12 +111,14 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20  px-4 w-full left-0 top-1">
+    <div className="max-w-7xl relative mx-auto py-20 px-4 w-full left-0 top-1">
       <h1 className="text-2xl text-end md:text-7xl font-bold dark:text-white">
-       Lorem, ipsum. <br /> Lorem, ipsum.
+        Lorem, ipsum. <br /> Lorem, ipsum.
       </h1>
       <p className="max-w-2xl text-base text-end md:text-xl mt-8 dark:text-neutral-200">
-       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto facere laudantium rerum est quae distinctio deleniti tempora saepe suscipit qui!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        facere laudantium rerum est quae distinctio deleniti tempora saepe
+        suscipit qui!
       </p>
     </div>
   );
