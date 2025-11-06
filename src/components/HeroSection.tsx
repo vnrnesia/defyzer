@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { InteractiveHoverButton } from "./HoverButton";
+import { InteractiveHoverButton } from "./ui/HoverButton";
 import { HeroParallax } from "../components/ui/HeroParallax";
 import HeroCaseStudies from "./ui/HeroCaseStudies";
 

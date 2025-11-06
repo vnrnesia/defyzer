@@ -1,6 +1,8 @@
 import HeroSection from "@/components/HeroSection";
 import { BentoDemo } from "@/components/ui/BentoGrid/BentoGrid";
-import { Crown } from "lucide-react";
+import { BlogSection } from "@/components/ui/BlogCarousel";
+import Faq3 from "@/components/ui/Faq";
+import { Crown, Newspaper } from "lucide-react";
 
 export default function Home() {
   return (
@@ -13,6 +15,11 @@ export default function Home() {
         </div>
        </div>
         <BentoDemo />
+         <div className="mt-24 gap-2 border-1 inline-flex p-1 px-3 rounded-full">
+          <Newspaper /> Blog
+        </div>
+        <BlogSection/>
+        <Faq3/>
       </div>
     </section>
   );
