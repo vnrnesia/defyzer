@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import { BentoDemo } from "@/components/ui/BentoGrid/BentoGrid";
 import { BlogSection } from "@/components/ui/BlogCarousel";
+import CtaSection from "@/components/ui/CtaSection";
 import Faq3 from "@/components/ui/Faq";
 import { Crown, Newspaper } from "lucide-react";
 
@@ -20,6 +21,7 @@ export default function Home() {
         </div>
         <BlogSection/>
         <Faq3/>
+        <CtaSection/>
       </div>
     </section>
   );
