@@ -83,11 +83,13 @@ export const BlogSection = () => {
           </div>
         </div>
 
-        <BlogCarousel
-          blogs={blogs}
-          carouselRef={carouselRef}
-          onScroll={checkScrollability}
-        />
+        {carouselRef && (
+          <BlogCarousel
+            blogs={blogs}
+            carouselRef={carouselRef as React.RefObject<HTMLDivElement>}
+            onScroll={checkScrollability}
+          />
+        )}
       </div>
     </section>
   );
