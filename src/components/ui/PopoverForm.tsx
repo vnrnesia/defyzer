@@ -127,7 +127,7 @@ export default function PopoverForm() {
                   whileTap={{ scale: 0.95 }}
                   className="px-4 py-2 rounded-md bg-blue-600 text-white shadow-sm"
                 >
-                  Formu Aç
+                  Contact
                 </motion.button>
               </MorphingPopoverTrigger>
               <MorphingPopoverContent className="w-72">

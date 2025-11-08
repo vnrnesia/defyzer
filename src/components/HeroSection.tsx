@@ -3,6 +3,7 @@ import React from "react";
 import { InteractiveHoverButton } from "./ui/HoverButton";
 import { HeroParallax } from "../components/ui/HeroParallax";
 import HeroCaseStudies from "./ui/HeroCaseStudies";
+import CtaMain from "./ui/CtaMain";
 
 const HeroSection = () => {
   const products = [
@@ -42,7 +43,7 @@ const HeroSection = () => {
         </div>
         <div className="relative h-[1400px] mt-20">
           <div className="sticky top-60 bg-white text-5xl ">
-            Başlık <br /> <p className="pt-4 text-2xl">Burası CTA veya Yazı kısmı olacak</p>
+          <CtaMain/>
           </div>
         </div>
       </div>
