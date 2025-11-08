@@ -27,12 +27,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="text-right hidden md:block">
-            <p className="text-sm text-gray-500">
-              Sh*t I've gone too far, send me back up{" "}
-              <span className="ml-1 inline-block animate-bounce">👆</span>
-            </p>
-          </div>
+       
         </div>
 
         {/* Footer Links */}
@@ -74,14 +69,11 @@ export default function Footer() {
                 <Phone className="h-4 w-4 text-lime-400" />
                 <span>01942 894 596</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-lime-400" />
-                <span>hello@madebyshape.co.uk</span>
-              </li>
+             
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-lime-400 mt-0.5" />
                 <span>
-                  MadeByShape<br />
+                
                   1 Gibfield Park Avenue<br />
                   Atherton Manchester<br />
                   M46 0SU
@@ -100,9 +92,8 @@ export default function Footer() {
             <span className="text-white font-medium">Shape.</span> © MadeByShape Ltd 2025 | Company Reg Number 10529058
           </p>
           <p className="mt-2 md:mt-0">
-            Web Design Manchester | All Rights Reserved |{" "}
             <Link href="/privacy" className="hover:text-lime-400">
-              Privacy Policy (you really care?)
+            
             </Link>
           </p>
         </div>

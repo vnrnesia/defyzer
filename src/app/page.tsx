@@ -1,8 +1,10 @@
 import HeroSection from "@/components/HeroSection";
 import { BentoDemo } from "@/components/ui/BentoGrid/BentoGrid";
 import { BlogSection } from "@/components/ui/BlogCarousel";
+import CardSection from "@/components/ui/CardSection";
 import CtaSection from "@/components/ui/CtaSection";
 import Faq3 from "@/components/ui/Faq";
+import Revenue from "@/components/ui/Revenue";
 import { Crown, Newspaper } from "lucide-react";
 
 export default function Home() {
@@ -20,7 +22,9 @@ export default function Home() {
           <Newspaper /> Blog
         </div>
         <BlogSection/>
+        <CardSection/>
         <Faq3/>
+        <Revenue/>
         <CtaSection/>
       </div>
     </section>

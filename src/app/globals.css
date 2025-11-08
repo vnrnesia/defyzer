@@ -127,3 +127,28 @@
     @apply bg-background text-foreground;
   }
 }
+
+.card {
+  position: sticky !important;
+  top: 15vh;
+  height: 80vh;
+}
+
+@media (max-width: 768px) {
+  .card {
+    top: 15vh;
+    height: 70vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    top: 15vh;
+    height: 70vh;
+  }
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
