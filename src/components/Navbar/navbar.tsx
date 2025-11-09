@@ -9,6 +9,8 @@ export default function NavbarDemo() {
     { name: "Ana Sayfa", link: "/" },
     { name: "Hizmetler", link: "/hizmetler" },
     { name: "İletişim", link: "/iletisim" },
+    { name: "İletişimd", link: "/iletisim" },
+    
   ];
 
   return (

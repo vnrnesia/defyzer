@@ -11,60 +11,66 @@ export default function CardSection() {
 
   useEffect(() => {
     const cards = cardsRef.current;
+    const triggers: ScrollTrigger[] = [];
 
     cards.forEach((card) => {
       if (!card) return;
-      const cardInner = card.querySelector(".content") as HTMLElement;
-      if (!cardInner) return;
+      const content = card.querySelector(".content") as HTMLElement;
+      if (!content) return;
 
-      const rotation = gsap.utils.random(-7, 7, true);
-
-      // Başlangıç durumları
-      gsap.set(cardInner, { scale: 1, rotation });
-
-      // Scroll'a bağlı scale ve rotation animasyonu
-      ScrollTrigger.create({
-        trigger: card,
-        start: "top 100%",
-        end: "top 25%",
-        scrub: 1,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          gsap.to(cardInner, {
-            scale: gsap.utils.interpolate(1.1, 0.9, progress),
-            rotation,
-            overwrite: false,
-          });
+      // Her kart için scale & opacity scroll animasyonu
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: card,
+          start: "top 15%",
+          end: "bottom 15%",
+          scrub: true,
+          markers: false,
         },
       });
 
-      // Sonsuz "floating" animasyonu (yavaş yukarı-aşağı)
-      gsap.to(cardInner, {
-        y: "+=5",
+      tl.to(content, {
+        scale: 0.7,
+        opacity: 0,
+        ease: "none",
+      });
+
+      triggers.push(tl.scrollTrigger!);
+
+      // Hafif yüzen (floating) hareket
+      gsap.to(content, {
+        y: "+=6",
         repeat: -1,
         yoyo: true,
         ease: "power1.inOut",
-        duration: gsap.utils.random(1, 2),
-        overwrite: false,
+        duration: gsap.utils.random(1.5, 2.5),
       });
     });
 
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+    // Cleanup
+    return () => {
+      triggers.forEach((t) => t.kill());
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, []);
 
   const cards = [
     { id: 1, title: "Card One", color: "bg-red-500" },
     { id: 2, title: "Card Two", color: "bg-green-500" },
     { id: 3, title: "Card Three", color: "bg-blue-500" },
+    { id: 4, title: "Card Four", color: "bg-purple-500" },
+    { id: 5, title: "Card Five", color: "bg-orange-500" },
   ];
 
   return (
-    <div className="cards flex flex-col gap-10 px-6 py-20">
+    <div className="cards flex flex-col gap-20 px-6 py-40">
       {cards.map((card, i) => (
         <div
           key={card.id}
-          ref={(el) => (cardsRef.current[i] = el)}
-          className={`card relative rounded-2xl shadow-xl ${card.color}`}
+          ref={(el) => {
+            cardsRef.current[i] = el;
+          }}
+          className={`card${card.id} relative rounded-2xl shadow-xl ${card.color} h-[60vh] w-full lg:w-[60vw] mx-auto sticky top-[15vh]`}
         >
           <div className="content flex h-full w-full items-center justify-center text-5xl font-bold text-white rounded-2xl">
             {card.title}

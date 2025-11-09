@@ -3,6 +3,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -148,7 +157,4 @@
   }
 }
 
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
+
