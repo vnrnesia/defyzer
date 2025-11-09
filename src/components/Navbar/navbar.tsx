@@ -10,6 +10,7 @@ export default function NavbarDemo() {
     { name: "Hizmetler", link: "/hizmetler" },
     { name: "İletişim", link: "/iletisim" },
     { name: "İletişimd", link: "/iletisim" },
+    { name: "İletişimd", link: "/iletisim" },
     
   ];
 

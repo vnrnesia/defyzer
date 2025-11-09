@@ -182,42 +182,40 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     setActiveIdx(idx);
   };
 
-  // dış kapsayıcı: linkler + dropdown aynı hover alanında
   return (
     <div
-      className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-6 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex",
-        className
-      )}
+      className={cn("absolute inset-0 hidden lg:block", className)}
       onMouseEnter={openMenu}
       onMouseLeave={scheduleClose}
     >
-      {/* Üst linkler */}
-      {items.map((item, idx) => (
-        <div key={item.name} className="relative">
-          <a
-            href={item.link}
-            onMouseEnter={() => onLinkEnter(item.name, idx)}
-            onClick={onItemClick}
-            className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white"
-          >
-            {activeIdx === idx && eligible.has(item.name) && (
-              <motion.div
-                layoutId="hovered"
-                className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
-              />
-            )}
-            <span className="relative z-20">{item.name}</span>
-          </a>
-        </div>
-      ))}
+      {/* This div now contains the links and is centered absolutely */}
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 flex flex-row items-center pt-4 space-x-6 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800">
+        {items.map((item, idx) => (
+          <div key={item.name} className="relative">
+            <a
+              href={item.link}
+              onMouseEnter={() => onLinkEnter(item.name, idx)}
+              onClick={onItemClick}
+              className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white"
+            >
+              {activeIdx === idx && eligible.has(item.name) && (
+                <motion.div
+                  layoutId="hovered"
+                  className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
+                />
+              )}
+              <span className="relative z-20">{item.name}</span>
+            </a>
+          </div>
+        ))}
+      </div>
 
       {/* Ortada sabitlenen dropdown kabı (kapanmaz, sadece içerik değişir) */}
       {menuOpen && active && eligible.has(active) && (
         <div className="pointer-events-auto absolute top-[calc(100%+1.2rem)] left-1/2 -translate-x-1/2 z-50">
-          <div className="bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-2xl shadow-xl p-4 w-[340px]">
+          <div className="bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-2xl shadow-xl justify-center p-4 w-[340px]">
             {/* İçerik alanını sabit yükseklikte tutarak cross-fade'i pürüzsüz yapıyoruz */}
-            <div className="relative h-[152px]"> 
+            <div className="relative h-[152px]">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={active}
