@@ -27,9 +27,12 @@ const HeroSection = () => {
   return (
     <section className="relative flex min-h-screen ">
       <div className="w-1/2 pt-36 flex-col justify-center   z-10">
-      <HeroCaseStudies/>
+        <HeroCaseStudies />
         <h1 className="text-7xl font-bold text-gray-900 leading-tight">
-          Lorem ipsum dolor, <span className="text-green-500">consectetur</span>
+          Lorem ipsum dolor, <br/>
+          <span className="bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent">
+            consectetur
+          </span>
         </h1>
 
         <p className="mt-6 text-lg text-gray-600 max-w-md">
@@ -43,7 +46,7 @@ const HeroSection = () => {
         </div>
         <div className="relative h-[1400px] mt-20">
           <div className="sticky top-60 bg-white text-5xl ">
-          <CtaMain/>
+            <CtaMain />
           </div>
         </div>
       </div>

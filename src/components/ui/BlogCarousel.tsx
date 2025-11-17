@@ -52,45 +52,57 @@ export const BlogSection = () => {
   }, []);
 
   return (
-    <section className="w-full  text-white py-20 D ">
-      <div className="mx-auto flex flex-col md:flex-row md:items-start md:gap-20 re max-w-7xl">
-        {/* SOL TARAF */}
-        <div className="md:w-[400px] mb-10 md:mb-0">
-        
-          <h2 className="text-4xl md:text-5xl text-black font-semibold mb-6 leading-tight">
-            Lorem, ipsum dolor.
-          </h2>
-          <InteractiveHoverButton className="!bg-green-500 !text-black  !over:!bg-lime-500">
-            Explore
-          </InteractiveHoverButton>
-
-          {/* Navigasyon butonları */}
-          <div className="flex justify-start gap-3 mt-4">
-            <button
-              onClick={scrollLeft}
-              disabled={!canScrollLeft}
-              className="h-10 w-10 rounded-full bg-neutral-800 flex items-center justify-center transition-transform hover:scale-105 hover:bg-green-500 hover:text-black disabled:opacity-30"
-            >
-              <IconArrowNarrowLeft className="w-6 h-6 text-white" />
-            </button>
-            <button
-              onClick={scrollRight}
-              disabled={!canScrollRight}
-              className="h-10 w-10 rounded-full bg-neutral-800 flex items-center justify-center transition-transform hover:scale-105 hover:bg-green-500 hover:text-black disabled:opacity-30"
-            >
-              <IconArrowNarrowRight className="w-6 h-6 text-white" />
-            </button>
-          </div>
+    <section>
+      <div className="mx-auto pt-44 mb-20 max-w-xl text-center">
+        <div className="gap-2 border-1 inline-flex p-1 px-3 rounded-full mb-4">
+          <Newspaper /> Blog
         </div>
-
-        {carouselRef && (
-          <BlogCarousel
-            blogs={blogs}
-            carouselRef={carouselRef as React.RefObject<HTMLDivElement>}
-            onScroll={checkScrollability}
-          />
-        )}
+        <h2 className="from-primary mb-4 bg-gradient-to-r to-green-500 bg-clip-text text-6xl font-bold text-transparent leading-tight">
+          Discover Our Latest Insights
+        </h2>
+        <p className="text-muted-foreground text-sm">
+          Explore insights, stories, and ideas from our team.{" "}
+        </p>
       </div>
+      <section className="w-full  text-white pb-20 D ">
+        <div className="mx-auto flex flex-col md:flex-row md:items-start md:gap-20 re max-w-7xl">
+          {/* SOL TARAF */}
+          <div className="md:w-[400px] mb-10 md:mb-0">
+            <h2 className="text-4xl md:text-5xl text-black font-semibold mb-6 leading-tight">
+              Lorem, ipsum dolor.
+            </h2>
+            <InteractiveHoverButton className="!bg-green-500 !text-black  !over:!bg-lime-500">
+              Explore
+            </InteractiveHoverButton>
+
+            {/* Navigasyon butonları */}
+            <div className="flex justify-start gap-3 mt-4">
+              <button
+                onClick={scrollLeft}
+                disabled={!canScrollLeft}
+                className="h-10 w-10 rounded-full bg-neutral-800 flex items-center justify-center transition-transform hover:scale-105 hover:bg-green-500 hover:text-black disabled:opacity-30"
+              >
+                <IconArrowNarrowLeft className="w-6 h-6 text-white" />
+              </button>
+              <button
+                onClick={scrollRight}
+                disabled={!canScrollRight}
+                className="h-10 w-10 rounded-full bg-neutral-800 flex items-center justify-center transition-transform hover:scale-105 hover:bg-green-500 hover:text-black disabled:opacity-30"
+              >
+                <IconArrowNarrowRight className="w-6 h-6 text-white" />
+              </button>
+            </div>
+          </div>
+
+          {carouselRef && (
+            <BlogCarousel
+              blogs={blogs}
+              carouselRef={carouselRef as React.RefObject<HTMLDivElement>}
+              onScroll={checkScrollability}
+            />
+          )}
+        </div>
+      </section>
     </section>
   );
 };

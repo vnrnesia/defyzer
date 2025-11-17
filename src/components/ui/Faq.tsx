@@ -2,17 +2,24 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Mail } from "lucide-react";
+import {
+  ChevronDown,
+  MessageCircleQuestionMark,
+  Newspaper,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FAQItemProps {
   question: string;
   answer: string;
   index: number;
+  defaultOpen?: boolean;
 }
 
-function FAQItem({ question, answer, index }: FAQItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
+function FAQItem({ question, answer, index, defaultOpen }: FAQItemProps) {
+  const [isOpen, setIsOpen] = useState(defaultOpen || false);
+
+  const isFirst = index === 0 && isOpen;
 
   return (
     <motion.div
@@ -24,9 +31,10 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
         ease: "easeOut",
       }}
       className={cn(
-        "group border-border/60 rounded-lg border",
-        "transition-all duration-200 ease-in-out",
-        isOpen ? "bg-card/30 shadow-sm" : "hover:bg-card/50"
+        "group rounded-lg border transition-all duration-200 ease-in-out",
+        isOpen
+          ? "shadow-sm bg-green-50 border-green-200"
+          : "hover:bg-card/50 border-border/60"
       )}
     >
       <button
@@ -37,12 +45,12 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
         <h3
           className={cn(
             "text-left text-base font-medium transition-colors duration-200",
-            "text-foreground/80",
-            isOpen && "text-foreground"
+            isOpen ? "text-green-600" : "text-foreground/80"
           )}
         >
           {question}
         </h3>
+
         <motion.div
           animate={{
             rotate: isOpen ? 180 : 0,
@@ -54,8 +62,7 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
           }}
           className={cn(
             "shrink-0 rounded-full p-0.5",
-            "transition-colors duration-200",
-            isOpen ? "text-primary" : "text-muted-foreground"
+            isOpen ? "text-green-600" : "text-muted-foreground"
           )}
         >
           <ChevronDown className="h-4 w-4" />
@@ -103,7 +110,7 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
                   duration: 0.3,
                   ease: "easeOut",
                 }}
-                className="text-muted-foreground text-sm leading-relaxed"
+                className="text-sm leading-relaxed text-gray-700"
               >
                 {answer}
               </motion.p>
@@ -120,35 +127,49 @@ export default function Faq3() {
     {
       question: "What makes MVPBlocks unique?",
       answer:
-        "MVPBlocks stands out through its intuitive design, powerful component library, and seamless integration options. We've focused on creating a user experience that combines simplicity with advanced features, all while maintaining excellent performance and accessibility.",
+        "MVPBlocks stands out through its intuitive design, powerful component library, and seamless integration options.",
+      defaultOpen: true, // İlk kutu açık başlar
     },
     {
       question: "How can I customize the components?",
       answer:
-        "All components are built with Tailwind CSS, making them highly customizable. You can modify colors, spacing, typography, and more by simply adjusting the class names or using our theme variables to match your brand identity.",
+        "All components are built with Tailwind CSS, making them highly customizable.",
     },
     {
       question: "Do the components work with dark mode?",
       answer:
-        "Yes, all MVPBlocks components are designed to work seamlessly with both light and dark modes. They automatically adapt to your site's theme settings, providing a consistent user experience regardless of the user's preference.",
+        "Yes, all MVPBlocks components adapt automatically to your theme.",
     },
     {
       question: "How can I get started with MVPBlocks?",
       answer:
-        "You can get started by browsing our component library and copying the code for the components you need. Our documentation provides clear instructions for installation and usage, and you can always reach out to our support team if you need assistance.",
+        "Browse our library, copy components, and follow our documentation.",
     },
     {
       question: "Can I use MVPBlocks for commercial projects?",
-      answer:
-        "Absolutely! MVPBlocks is free to use for both personal and commercial projects. There are no licensing fees or attribution requirements—just build and launch your MVP faster than ever before.",
+      answer: "Absolutely! MVPBlocks is free for personal and commercial use.",
     },
   ];
 
   return (
     <section className="bg-background relative w-full overflow-hidden py-16">
-      <div className="relative container mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        {/* Sol Taraf: Görsel */}
-        <div className="flex justify-center">
+      {/* --- Üst Ortadaki Başlık --- */}
+      <div className="mx-auto mb-14 max-w-xl text-center">
+        <div className="gap-2 border-1 inline-flex p-1 px-3 rounded-full mb-4">
+          <MessageCircleQuestionMark /> Blog
+        </div>
+        <h2 className="from-primary mb-3 bg-gradient-to-r to-green-500 bg-clip-text text-6xl font-bold text-transparent">
+          Frequently Asked Questions
+        </h2>
+        <p className="text-muted-foreground text-sm">
+          Everything you need to know about MVPBlocks
+        </p>
+      </div>
+
+      {/* --- İçerik Grid --- */}
+      <div className="container mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        {/* Sol: Görsel */}
+        <div className="flex justify-center self-start">
           <img
             src="/signboad.jpg"
             alt="Signboard"
@@ -156,57 +177,13 @@ export default function Faq3() {
           />
         </div>
 
-        {/* Sağ Taraf: FAQ */}
+        {/* Sağ: Akordeon */}
         <div className="relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mx-auto mb-12 max-w-2xl text-center md:text-left"
-          >
-            <span className="border px-2 py-1 text-xs rounded">FAQs</span>
-            <h2 className="from-primary mb-3 bg-gradient-to-r to-lime-400 bg-clip-text text-3xl font-bold text-transparent">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-muted-foreground text-sm">
-              Everything you need to know about MVPBlocks
-            </p>
-          </motion.div>
-
           <div className="mx-auto max-w-2xl space-y-2">
             {faqs.map((faq, index) => (
               <FAQItem key={index} {...faq} index={index} />
             ))}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className={cn("mx-auto mt-12 max-w-md rounded-lg p-6 text-center md:text-left")}
-          >
-            <div className="bg-primary/10 text-primary mb-4 inline-flex items-center justify-center rounded-full p-2">
-              <Mail className="h-4 w-4" />
-            </div>
-            <p className="text-foreground mb-1 text-sm font-medium">
-              Still have questions?
-            </p>
-            <p className="text-muted-foreground mb-4 text-xs">
-              We&apos;re here to help you
-            </p>
-            <button
-              type="button"
-              className={cn(
-                "rounded-md px-4 py-2 text-sm",
-                "bg-primary text-primary-foreground",
-                "hover:bg-primary/90",
-                "transition-colors duration-200",
-                "font-medium"
-              )}
-            >
-              Contact Support
-            </button>
-          </motion.div>
         </div>
       </div>
     </section>

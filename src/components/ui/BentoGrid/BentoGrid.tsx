@@ -18,6 +18,7 @@ import HoverControlledLottie from "./HoverControlledLottie";
 import { Button } from "./button";
 import { img } from "motion/react-client";
 import HoverReverseLottie from "./HoverReverseLottie";
+import { HandPlatter, Newspaper } from "lucide-react";
 
 interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
   children: ReactNode;
@@ -201,10 +202,23 @@ export function BentoDemo() {
   ];
 
   return (
-    <BentoGrid className="lg:grid-rows-3">
+  <section>
+  <div className="mx-auto mb-14 max-w-xl text-center">
+        <div className="gap-2 border-1 inline-flex p-1 px-3 rounded-full mb-4">
+          <HandPlatter /> Our Services
+        </div>
+        <h2 className="from-primary mb-3 bg-gradient-to-r to-green-500 bg-clip-text text-6xl font-bold text-transparent">
+          Our Key Services
+        </h2>
+        <p className="text-muted-foreground text-sm">
+          There is the important services
+        </p>
+      </div>
+      <BentoGrid className="lg:grid-rows-3">
       {features.map((feature) => (
         <BentoCard key={feature.name} {...feature} />
       ))}
     </BentoGrid>
+  </section>
   );
 }
