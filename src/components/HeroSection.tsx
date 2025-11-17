@@ -29,7 +29,7 @@ const HeroSection = () => {
       <div className="w-1/2 pt-36 flex-col justify-center   z-10">
       <HeroCaseStudies/>
         <h1 className="text-7xl font-bold text-gray-900 leading-tight">
-          Lorem ipsum dolor, <span className="text-[#87e64b]">consectetur</span>
+          Lorem ipsum dolor, <span className="text-green-500">consectetur</span>
         </h1>
 
         <p className="mt-6 text-lg text-gray-600 max-w-md">

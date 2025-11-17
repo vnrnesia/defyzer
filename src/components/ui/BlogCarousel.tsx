@@ -60,7 +60,7 @@ export const BlogSection = () => {
           <h2 className="text-4xl md:text-5xl text-black font-semibold mb-6 leading-tight">
             Lorem, ipsum dolor.
           </h2>
-          <InteractiveHoverButton className="!bg-lime-400 !text-black  !over:!bg-lime-500">
+          <InteractiveHoverButton className="!bg-green-500 !text-black  !over:!bg-lime-500">
             Explore
           </InteractiveHoverButton>
 
@@ -69,14 +69,14 @@ export const BlogSection = () => {
             <button
               onClick={scrollLeft}
               disabled={!canScrollLeft}
-              className="h-10 w-10 rounded-full bg-neutral-800 flex items-center justify-center transition-transform hover:scale-105 hover:bg-lime-400 hover:text-black disabled:opacity-30"
+              className="h-10 w-10 rounded-full bg-neutral-800 flex items-center justify-center transition-transform hover:scale-105 hover:bg-green-500 hover:text-black disabled:opacity-30"
             >
               <IconArrowNarrowLeft className="w-6 h-6 text-white" />
             </button>
             <button
               onClick={scrollRight}
               disabled={!canScrollRight}
-              className="h-10 w-10 rounded-full bg-neutral-800 flex items-center justify-center transition-transform hover:scale-105 hover:bg-lime-400 hover:text-black disabled:opacity-30"
+              className="h-10 w-10 rounded-full bg-neutral-800 flex items-center justify-center transition-transform hover:scale-105 hover:bg-green-500 hover:text-black disabled:opacity-30"
             >
               <IconArrowNarrowRight className="w-6 h-6 text-white" />
             </button>

@@ -63,7 +63,7 @@ function MyForm({ onSuccess }: { onSuccess: () => void }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           className={cn(
-            'w-full rounded-md border bg-white px-2 py-1.5 text-sm text-zinc-900 focus:border-blue-500 focus:ring focus:ring-blue-200 dark:bg-zinc-800 dark:text-zinc-100',
+            'w-full rounded-md border bg-white px-2 py-1.5 text-sm text-zinc-900 focus:border-green-500 focus:ring focus:ring-green-500 dark:bg-zinc-800 dark:text-zinc-100',
             errors.name ? 'border-red-500' : 'border-zinc-300 dark:border-zinc-600'
           )}
           placeholder="Adınızı girin"
@@ -83,7 +83,7 @@ function MyForm({ onSuccess }: { onSuccess: () => void }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={cn(
-            'w-full rounded-md border bg-white px-2 py-1.5 text-sm text-zinc-900 focus:border-blue-500 focus:ring focus:ring-blue-200 dark:bg-zinc-800 dark:text-zinc-100',
+            'w-full rounded-md border bg-white px-2 py-1.5 text-sm text-zinc-900 focus:border-green-500 focus:ring focus:ring-green-500 dark:bg-zinc-800 dark:text-zinc-100',
             errors.email ? 'border-red-500' : 'border-zinc-300 dark:border-zinc-600'
           )}
           placeholder="ornek@mail.com"
@@ -94,7 +94,7 @@ function MyForm({ onSuccess }: { onSuccess: () => void }) {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         type="submit"
-        className="mt-2 rounded-md bg-blue-600 px-3 py-2 text-white text-sm font-medium shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="mt-2 rounded-md bg-green-600 px-3 py-2 text-white text-sm font-medium shadow hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         Gönder
       </motion.button>
