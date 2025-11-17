@@ -102,8 +102,10 @@ function MyForm({ onSuccess }: { onSuccess: () => void }) {
   );
 }
 
-export default function PopoverForm() {
+export default function PopoverForm({ buttonSize }: { buttonSize?: "small" | "medium" }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const buttonPaddingClasses = buttonSize === "small" ? "px-3 py-1.5 " : "px-4 py-2";
 
   return (
     <div className="flex flex-col items-center gap-2">
@@ -125,7 +127,10 @@ export default function PopoverForm() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 rounded-md bg-blue-600 text-white shadow-sm"
+                  className={cn(
+                    buttonPaddingClasses,
+                    "rounded-full bg-black/40 font-semibold text-white text-2xl shadow-sm"
+                  )}
                 >
                   Contact
                 </motion.button>
@@ -141,7 +146,7 @@ export default function PopoverForm() {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-sm text-zinc-600 dark:text-zinc-400"
+          className="text-sm text-white dark:text-zinc-400"
         >
           En kısa zamanda ulaşacağız
         </motion.p>
