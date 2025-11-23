@@ -5,7 +5,7 @@ import CardSection from "@/components/ui/CardSection";
 import CtaSection from "@/components/ui/CtaSection";
 import Faq3 from "@/components/ui/Faq";
 import Revenue from "@/components/ui/Revenue";
-import { Crown, Newspaper } from "lucide-react";
+import Testimonials from "@/components/ui/Testimonals";
 
 export default function Home() {
   return (
@@ -22,7 +22,9 @@ export default function Home() {
         <CardSection/>
         <Faq3/>
         <Revenue/>
+        <Testimonials/>
         <CtaSection/>
+        
       </div>
     </section>
   );

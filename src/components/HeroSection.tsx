@@ -7,21 +7,21 @@ import CtaMain from "./ui/CtaMain";
 
 const HeroSection = () => {
   const products = [
-    { title: "AI Dashboard", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "Creative Studio", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "E-Commerce UI", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "Portfolio Site", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "3D Visualizer", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "Startup Landing", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "Mobile App", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "Design System", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "Analytics Tool", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "Motion UI", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "AI Tool", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "SaaS Platform", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "Creative Portfolio", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "Next.js Website", link: "#", thumbnail: "/NavbarLogo.png" },
-    { title: "Web App", link: "#", thumbnail: "/NavbarLogo.png" },
+    { title: "AI Dashboard", link: "#", thumbnail: "/a.png" },
+    { title: "Creative Studio", link: "#", thumbnail: "/a.png" },
+    { title: "E-Commerce UI", link: "#", thumbnail: "/a.png" },
+    { title: "Portfolio Site", link: "#", thumbnail: "/a.png" },
+    { title: "3D Visualizer", link: "#", thumbnail: "/a.png" },
+    { title: "Startup Landing", link: "#", thumbnail: "/a.png" },
+    { title: "Mobile App", link: "#", thumbnail: "/a.png" },
+    { title: "Design System", link: "#", thumbnail: "/a.png" },
+    { title: "Analytics Tool", link: "#", thumbnail: "/a.png" },
+    { title: "Motion UI", link: "#", thumbnail: "/a.png" },
+    { title: "AI Tool", link: "#", thumbnail: "/a.png" },
+    { title: "SaaS Platform", link: "#", thumbnail: "/a.png" },
+    { title: "Creative Portfolio", link: "#", thumbnail: "/a.png" },
+    { title: "Next.js Website", link: "#", thumbnail: "/a.png" },
+    { title: "Web App", link: "#", thumbnail: "/a.png" },
   ];
 
   return (

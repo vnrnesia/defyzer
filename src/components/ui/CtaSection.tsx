@@ -12,14 +12,20 @@ export default function HelpCTA() {
   return (
     <div className="w-full flex items-center justify-center p-6">
       <div className="w-full max-w-6xl">
+        {/* 'isolate' önemli, içeriğin bg üzerinde kalmasını sağlar */}
         <div className="relative isolate overflow-hidden rounded-3xl shadow-2xl">
-          {/* Arka plan */}
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(1200px_600px_at_50%_-40%,#ffffff_0%,#f7f7f8_30%,#e5e7eb_70%,#d1d5db_100%)]" />
+          
+          {/* --- DÜZELTME BURADA --- */}
+          <div
+            className="absolute inset-0 bg-cover bg-center w-full h-full -z-10"
+            style={{ backgroundImage: "url(/backgrounds/cards_bg2.webp)" }}
+          />
+          {/* ----------------------- */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center relative"> 
             {/* Sol içerik */}
             <div className="px-8 py-16 sm:py-20 md:py-24 lg:py-28 xl:py-20 sm:px-10 md:px-16 lg:px-14 text-center">
-              <h2 className="max-w-xl font-semibold tracking-tight text-neutral-900 text-3xl sm:text-4xl md:text-3xl">
+              <h2 className="max-w-xl font-semibold tracking-tight text-white text-3xl sm:text-4xl md:text-3xl">
                 Let's connect, we're ready!
               </h2>{" "}
               <div className="mx-auto  pt-4 flex justify-center items-center">
@@ -40,10 +46,10 @@ export default function HelpCTA() {
             </div>
 
             {/* Sağ görsel */}
-            <div className="hidden md:flex items-center justify-center p-5">
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
+            <div className="hidden md:flex items-center justify-center ">
+              <div className=" overflow-hidden shadow-lg ">
                 <img
-                  src="/signboad.jpg"
+                  src="mockuptcta.png"
                   alt="Support illustration"
                   className="w-full h-full object-cover"
                 />
